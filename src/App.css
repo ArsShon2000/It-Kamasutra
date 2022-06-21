@@ -6,16 +6,21 @@
 .App-wrapper {
   display: grid;
   margin: auto;
-  width: auto;
-  grid-template-areas: 
-  "h h"
-  "n c";
+  width: 1200px;
+  grid-template-areas:
+    "h h"
+    "n c";
 
 
   grid-template-rows: 120px 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 1fr 10fr;
   /* grid-gap: 10px; */
 
+}
+
+.App-wrapper-content {
+  grid-area: c;
+  background-color: rgb(226, 43, 73);
 }
 
 
