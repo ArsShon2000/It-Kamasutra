@@ -1,27 +1,23 @@
 import React, { component } from 'react';
 import s from './Navbar.module.css';
 
-// let s ={
-//     'nav': 'Navbar_nav__3ou9Q'
-//     'item': 'Navbar_item__3er6Q'
-// }
 
 const Navbar = () => {
     return <nav className={s.nav}>
         <div className={s.item}>
-            <a>Profile</a>
+            <a href="/profile">Profile</a>
         </div>
         <div className={`${s.item} ${s.active}`}>
-            <a>Massages</a>
+            <a href="/dialogs">Massages</a>
         </div>
         <div className={s.item}>
-            <a>News</a>
+            <a href="/news">News</a>
         </div>
         <div className={s.item}>
-            <a>Music</a>
+            <a href="/music">Music</a>
         </div>
         <div className={s.item}>
-            <a>Settings</a>
+            <a href="/settings">Settings</a>
         </div>
         {/* <div>
       Profile
