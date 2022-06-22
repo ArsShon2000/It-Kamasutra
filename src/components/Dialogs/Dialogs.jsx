@@ -2,39 +2,35 @@ import React, { component } from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
 
-const Dialogs = () => {
-    return(
+const DialogItem = (props) => {
+    let path = "/dialogs/" + props.id;
+    return <div className={s.dialog + ' ' + s.active}>
+        <NavLink to={path}>{props.name}</NavLink>
+    </div>
+}
+
+const Massage = (props) => {
+    return <div className={s.dialog}>
+        {props.massage}
+    </div>
+}
+
+
+const Dialogs = (props) => {
+    return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <div className={s.dialog + ' ' + s.active}>
-                    <NavLink to="/dialogs/1">Malyshka</NavLink>
-                </div>
-                <div className={s.dialog}>
-                <NavLink to="/dialogs/2">Senpai</NavLink>
-                </div>
-                <div className={s.dialog}>
-                <NavLink to="/dialogs/3">Artur</NavLink>
-                </div>
-                <div className={s.dialog}>
-                <NavLink to="/dialogs/4">Amina</NavLink>
-                </div>
-                <div className={s.dialog}>
-                <NavLink to="/dialogs/5">Sabira</NavLink>
-                </div>
-                <div className={s.dialog}>
-                <NavLink to="/dialogs/6">Den</NavLink>
-                </div>
+                <DialogItem name="Malyshka" id="1" />
+                <DialogItem name="Senpai" id="2" />
+                <DialogItem name="Artur" id="3" />
+                <DialogItem name="Amina" id="4" />
+                <DialogItem name="Sabira" id="5" />
+                <DialogItem name="Den" id="6" />
             </div>
-            <div className={s.messages}>
-                <div className={s.massage}>
-                    Кисконайым
-                </div>
-                <div className={s.massage}>
-                    Еркеее
-                </div>
-                <div className={s.massage}>
-                    Сянм сянм сянм
-                </div>
+            <div className={s.dialog}>
+                <Massage massage="Кисконайым" />
+                <Massage massage="Еркеее" />
+                <Massage massage="Сянм сянм сянм" />
             </div>
         </div>
     )
