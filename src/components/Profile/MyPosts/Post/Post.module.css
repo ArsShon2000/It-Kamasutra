@@ -3,16 +3,20 @@
   color: greenyellow;
 }
 
-.couLikes {
-  font-size: 20px;
-}
+
 
 .item img {
   width: 50px;
   border-radius: 30px;
 }
 
-.couLikes img {
+.likesCount {
+  font-size: 20px;
+}
+
+
+
+.likesCount img {
   width: 16px;
   border-radius: 0px;
 }
