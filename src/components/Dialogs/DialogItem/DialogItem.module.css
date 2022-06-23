@@ -1,8 +1,3 @@
-.dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
-}
-
 .dialogsItems a{
     /* padding: 10px; */
     color: azure;
@@ -21,8 +16,4 @@
 .dialog {
     /* padding: 10px; */
     color: azure;
-}
-
-.messages .message {
-    /* color: white; */
 }
