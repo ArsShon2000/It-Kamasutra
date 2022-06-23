@@ -4,10 +4,14 @@ import Post from './Post/Post';
 
 const MyPosts = () => {
 
-    let postData =[
+    let posts =[
         {id: 1, message: 'Hi, my name is Ars', likesCount: 7},
-        {id: 2, message: "It's my first post", likesCount: 6}, 
+        {id: 2, message: "It's my first post", likesCount: 6},
+        {id: 1, message: 'I learn React 3-th day', likesCount: 47},
+        {id: 1, message: 'Я будущий миллионер', likesCount: 87237},
     ]
+
+    let postsElements = posts.map( p => <Post message = {p.message} likesCount={p.likesCount} /> );
 
     return (
         <div className={s.postBlock}>
@@ -21,8 +25,9 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post massage={postData[0].message} likesCount={postData[0].likesCount} />
-                <Post massage={postData[1].message} likesCount={postData[1].likesCount} />
+                { postsElements }
+                {/* <Post message={postData[0].message} likesCount={postData[0].likesCount} />
+                <Post message={postData[1].message} likesCount={postData[1].likesCount} /> */}
             </div>
         </div>)
 }

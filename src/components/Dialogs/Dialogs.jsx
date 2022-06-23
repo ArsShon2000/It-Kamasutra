@@ -9,46 +9,53 @@ const DialogItem = (props) => {
     </div>
 }
 
-const Massage = (props) => {
+const Message = (props) => {
     return <div className={s.dialog}>
-        {props.massage}
+        {props.message}
     </div>
 }
 
 const Dialogs = (props) => {
 
-    let dialogsData =[
-        {id: 1, name: 'Malyshka'},
-        {id: 2, name: 'Senpai'},
-        {id: 3, name: 'Artur'},
-        {id: 4, name: 'Amina'},
-        {id: 5, name: 'Sabira'},
-        {id: 6, name: 'Den'},
+    let dialogs = [
+        { id: 1, name: 'Malyshka' },
+        { id: 2, name: 'Senpai' },
+        { id: 3, name: 'Artur' },
+        { id: 4, name: 'Amina' },
+        { id: 5, name: 'Sabira' },
+        { id: 6, name: 'Den' },
     ]
 
+    let dialogElements = dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
 
-    let messagesData =[
-        {id: 1, message: 'Кисконайым'},
-        {id: 2, message: 'Еркеее'},
-        {id: 3, message: 'Сянм сянм сянм'},
+    let messages = [
+        { id: 1, message: 'Кисконайым' },
+        { id: 2, message: 'Еркеее' },
+        { id: 3, message: 'Сянм сянм сянм' },
+        { id: 4, message: 'Сянм сянм сянм' },
+        { id: 5, message: 'Сянм сянм сянм' },
+        { id: 6, message: 'Сянм сянм сянм' },
     ]
-    
+
+    let messagesElements = messages.map(m => <Message message={m.message} />);
 
 
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
-                <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
-                <DialogItem name={dialogsData[3].name} id={dialogsData[3].id} />
-                <DialogItem name={dialogsData[4].name} id={dialogsData[4].id} />
-                <DialogItem name={dialogsData[5].name} id={dialogsData[5].id} />
+                { dialogElements }
+                {/* <DialogItem name={dialogs[0].name} id={dialogs[0].id}/>
+                <DialogItem name={dialogs[1].name} id={dialogs[1].id} />
+                <DialogItem name={dialogs[2].name} id={dialogs[2].id} />
+                <DialogItem name={dialogs[3].name} id={dialogs[3].id} />
+                <DialogItem name={dialogs[4].name} id={dialogs[4].id} />
+                <DialogItem name={dialogs[5].name} id={dialogs[5].id} /> */}
             </div>
             <div className={s.dialog}>
-                <Massage massage={messagesData[0].message} id={messagesData[0].id} />
-                <Massage massage={messagesData[1].message} id={messagesData[1].id} />
-                <Massage massage={messagesData[2].message} id={messagesData[2].id} />
+                { messagesElements }
+                {/* <Massage massage={messages[0].message} id={messages[0].id} />
+                <Massage massage={messages[1].message} id={messages[1].id} />
+                <Massage massage={messages[2].message} id={messages[2].id} /> */}
             </div>
         </div>
     )
