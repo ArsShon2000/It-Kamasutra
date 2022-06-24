@@ -12,14 +12,14 @@ import Settings from './components/Settings/Settings'
 
 
 let Navbars = [
-  {navs: 'Dialogs'},
-  {navs: 'Profile'},
-  {navs: 'News'},
-  {navs: 'Music'},
-  {navs: 'Settings'},
+  {navs: 'Dialogs', paths: '/dialogs'},
+  {navs: 'Profile', paths: '/profile'},
+  {navs: 'News', paths: '/news'},
+  {navs: 'Music', paths: '/music'},
+  {navs: 'Settings', paths: '/settings'},
 ]
 
-let navbarElements = Navbars.map ( n => <Route  path='/dialogs' render={ () => <n.navs />} />  )
+let navbarElements = Navbars.map ( n => <Route  path={<n.paths />} render={ () => <n.navs />} />  )
 
 const App = (props) => {
   return (
@@ -34,7 +34,7 @@ const App = (props) => {
           <Route  path='/music' component={Music} />
           <Route  path='/settings' component={Settings} /> */}
           
-          {navbarElements}
+          { navbarElements }
 
 
           {/* <Route  path='/dialogs' render={ () => <Dialogs />} />
