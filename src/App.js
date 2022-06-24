@@ -11,17 +11,29 @@ import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 
 
-let Navbars = [
-  {navs: 'Dialogs', paths: '/dialogs'},
-  {navs: 'Profile', paths: '/profile'},
-  {navs: 'News', paths: '/news'},
-  {navs: 'Music', paths: '/music'},
-  {navs: 'Settings', paths: '/settings'},
-]
-
-let navbarElements = Navbars.map ( n => <Route  path={<n.paths />} render={ () => <n.navs />} />  )
-
 const App = (props) => {
+
+
+//   let posts =[
+//     {id: 1, message: 'Hi, my name is Ars', likesCount: 7},
+//     {id: 2, message: "It's my first post", likesCount: 6},                     Подняли на уровень выше чтобы  отправить их в БД
+//     {id: 1, message: 'I learn React 3-th day', likesCount: 47},
+//     {id: 1, message: 'Я будущий миллионер', likesCount: 87237},
+// ]
+//___________________________________________________________________________________________________________________
+
+// let dialogs = [
+//   { id: 1, name: 'Malyshka' },
+//   { id: 2, name: 'Senpai' },
+//   { id: 3, name: 'Artur' },                    Подняли на уровень выше чтобы  отправить их в БД
+//   { id: 4, name: 'Amina' },
+//   { id: 5, name: 'Sabira' },
+//   { id: 6, name: 'Den' },
+// ]
+
+
+
+
   return (
     <BrowserRouter>
       <div className="App-wrapper">
@@ -34,15 +46,12 @@ const App = (props) => {
           <Route  path='/music' component={Music} />
           <Route  path='/settings' component={Settings} /> */}
           
-          { navbarElements }
-
-
-          {/* <Route  path='/dialogs' render={ () => <Dialogs />} />
-          <Route  path='/profile' render={ () => <Profile />} />
+          <Route  path='/dialogs' render={ () => <Dialogs dialogs = {props.dialogs} messages = {props.messages} />} />
+          <Route  path='/profile' render={ () => <Profile posts = {props.posts}/>} />
           <Route  path='/news' render={ () => <News />} />
           <Route  path='/music' render={ () => <Music />} />
           <Route  path='/settings' render={ () => <Settings />} />
-         */}
+        
         </div>
       </div>
     </BrowserRouter>

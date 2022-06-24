@@ -18,27 +18,27 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-    let dialogs = [
-        { id: 1, name: 'Malyshka' },
-        { id: 2, name: 'Senpai' },
-        { id: 3, name: 'Artur' },
-        { id: 4, name: 'Amina' },
-        { id: 5, name: 'Sabira' },
-        { id: 6, name: 'Den' },
-    ]
+    // let dialogs = [
+    //     { id: 1, name: 'Malyshka' },
+    //     { id: 2, name: 'Senpai' },
+    //     { id: 3, name: 'Artur' },                    Подняли на уровень выше чтобы  отправить их в БД
+    //     { id: 4, name: 'Amina' },
+    //     { id: 5, name: 'Sabira' },
+    //     { id: 6, name: 'Den' },
+    // ]
 
-    let dialogElements = dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
+    let dialogElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
 
-    let messages = [
-        { id: 1, message: 'Кисконайым' },
-        { id: 2, message: 'Еркеее' },
-        { id: 3, message: 'Сянм сянм сянм' },
-        { id: 4, message: 'Сянм сянм сянм' },
-        { id: 5, message: 'Сянм сянм сянм' },
-        { id: 6, message: 'Сянм сянм сянм' },
-    ]
+    // let messages = [
+    //     { id: 1, message: 'Кисконайым' },
+    //     { id: 2, message: 'Еркеее' },
+    //     { id: 3, message: 'Сянм сянм сянм' },                    Подняли на уровень выше чтобы  отправить их в БД
+    //     { id: 4, message: 'Сянм сянм сянм' },
+    //     { id: 5, message: 'Сянм сянм сянм' },
+    //     { id: 6, message: 'Сянм сянм сянм' },
+    // ]
 
-    let messagesElements = messages.map(m => <Message message={m.message} />);
+    let messagesElements = props.messages.map(m => <Message message={m.message} />);
 
 
     return (
