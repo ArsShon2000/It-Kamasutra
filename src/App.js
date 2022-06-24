@@ -11,18 +11,38 @@ import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 
 
-const App = () => {
+let Navbars = [
+  {navs: 'Dialogs'},
+  {navs: 'Profile'},
+  {navs: 'News'},
+  {navs: 'Music'},
+  {navs: 'Settings'},
+]
+
+let navbarElements = Navbars.map ( n => <Route  path='/dialogs' render={ () => <n.navs />} />  )
+
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="App-wrapper">
         <Header />
         <Navbar />
         <div className='App-wrapper-content'>
-          <Route /*exact*/ path='/dialogs' component={Dialogs} />
-          <Route /*exact*/ path='/profile' component={Profile} />
-          <Route /*exact*/ path='/news' component={News} />
-          <Route /*exact*/ path='/music' component={Music} />
-          <Route /*exact*/ path='/settings' component={Settings} />
+          {/* <Route  path='/dialogs' component={Dialogs} />     потому что компонент не дает вывести БД за АПП ЖС
+          <Route  path='/profile' component={Profile} /> 
+          <Route  path='/news' component={News} />                или рендер быстрее
+          <Route  path='/music' component={Music} />
+          <Route  path='/settings' component={Settings} /> */}
+          
+          {navbarElements}
+
+
+          {/* <Route  path='/dialogs' render={ () => <Dialogs />} />
+          <Route  path='/profile' render={ () => <Profile />} />
+          <Route  path='/news' render={ () => <News />} />
+          <Route  path='/music' render={ () => <Music />} />
+          <Route  path='/settings' render={ () => <Settings />} />
+         */}
         </div>
       </div>
     </BrowserRouter>
