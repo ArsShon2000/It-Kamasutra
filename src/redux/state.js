@@ -7,7 +7,7 @@ let state ={
       {id: 1, message: 'Hi, my name is Ars', likesCount: 7},
       {id: 2, message: "It's my first post", likesCount: 6},
       {id: 3, message: 'I learn React 3-th day', likesCount: 47},
-      {id: 4, message: 'Я будущий миллионер', likesCount: 87237}
+      {id: 4, message: 'Я будущий миллионер', likesCount: 87237},
   ],
   
   },
