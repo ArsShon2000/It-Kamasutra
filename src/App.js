@@ -46,11 +46,18 @@ const App = (props) => {
           <Route  path='/music' component={Music} />
           <Route  path='/settings' component={Settings} /> */}
           
-          <Route  path='/dialogs' render={ () => <Dialogs dialogs = {props.dialogs} messages = {props.messages} />} />
-          <Route  path='/profile' render={ () => <Profile posts = {props.posts}/>} />
-          <Route  path='/news' render={ () => <News />} />
-          <Route  path='/music' render={ () => <Music />} />
-          <Route  path='/settings' render={ () => <Settings />} />
+          <Route  path='/dialogs' 
+            render={ () => <Dialogs 
+              state = {props.state.dialogsPage}  />} />
+          <Route  path='/profile' 
+            render={ () => <Profile 
+              state = {props.state.profilePage}/>} />
+          <Route  path='/news' 
+            render={ () => <News />} />
+          <Route  path='/music' 
+            render={ () => <Music />} />
+          <Route  path='/settings' 
+            render={ () => <Settings />} />
         
         </div>
       </div>
