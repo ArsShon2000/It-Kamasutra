@@ -16,6 +16,14 @@ import Message from './Message/Message';
 //     </div>
 // }
 
+let mewMessageElement = React.createRef();
+
+let addMessage = () => {
+    let textMessage = mewMessageElement.current.value;
+    alert(textMessage)
+
+}
+
 const Dialogs = (props) => {
 
     // let dialogs = [
@@ -27,9 +35,9 @@ const Dialogs = (props) => {
     //     { id: 6, name: 'Den' },
     // ]
 
-    let dialogElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);
+    let dialogElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} avatar={d.avatar} />);
 
-    
+
     // let messages = [
     //     { id: 1, message: 'Кисконайым' },
     //     { id: 2, message: 'Еркеее' },
@@ -45,7 +53,7 @@ const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                { dialogElements }
+                {dialogElements}
                 {/* <DialogItem name={dialogs[0].name} id={dialogs[0].id}/>
                 <DialogItem name={dialogs[1].name} id={dialogs[1].id} />
                 <DialogItem name={dialogs[2].name} id={dialogs[2].id} />
@@ -54,10 +62,18 @@ const Dialogs = (props) => {
                 <DialogItem name={dialogs[5].name} id={dialogs[5].id} /> */}
             </div>
             <div className={s.dialog}>
-                { messagesElements }
+                {messagesElements}
                 {/* <Massage massage={messages[0].message} id={messages[0].id} />
                 <Massage massage={messages[1].message} id={messages[1].id} />
                 <Massage massage={messages[2].message} id={messages[2].id} /> */}
+            </div>
+            <div>
+                <div>
+                    <textarea ref = {mewMessageElement}></textarea>
+                </div>
+                <div>
+                    <button onClick={addMessage}>Add message</button>
+                </div>
             </div>
         </div>
     )

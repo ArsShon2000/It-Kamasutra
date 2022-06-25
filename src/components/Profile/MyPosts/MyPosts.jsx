@@ -2,6 +2,15 @@ import React, { component } from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
+
+
+let newPostElement = React.createRef();
+
+let addPost = () => {
+    let text = newPostElement.current.value;
+    alert(text)
+}
+
 const MyPosts = (props) => {
 
     // let posts =[
@@ -11,14 +20,7 @@ const MyPosts = (props) => {
     //     {id: 1, message: 'Я будущий миллионер', likesCount: 87237},
     // ]
 
-    let postsElements = props.posts.map( p => <Post message = {p.message} likesCount={p.likesCount} /> );
-
-    let newPostElement = React.createRef();
-
-    let addPost = () => {
-        let text = newPostElement.current.value;
-        alert (text) 
-    }
+    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
 
 
     return (
@@ -29,11 +31,11 @@ const MyPosts = (props) => {
                     <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button onClick = { addPost }>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
             </div>
             <div className={s.posts}>
-                { postsElements }
+                {postsElements}
                 {/* <Post message={postData[0].message} likesCount={postData[0].likesCount} />
                 <Post message={postData[1].message} likesCount={postData[1].likesCount} /> */}
             </div>
