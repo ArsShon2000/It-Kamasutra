@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {addPost} from './redux/state';
+import {addPost, updateNewPostText} from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
 
 // addPost('Yoo!');  Проверка
@@ -37,7 +37,7 @@ import { BrowserRouter } from 'react-router-dom';
 export let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state = {state} addPost = { addPost }/>
+      <App state = {state} addPost = { addPost } updateNewPostText = {updateNewPostText}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
