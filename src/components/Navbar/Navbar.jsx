@@ -21,6 +21,17 @@ const Navbar = () => {
             <div className={s.item}>
                 <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
             </div>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <div>
+            <span><img src="https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg" /> </span>
+            <span><img src="https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg" /> </span>
+            <span><img src="https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg" /> </span>
+            </div>
         </nav>
     )
 }

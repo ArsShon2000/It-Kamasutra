@@ -17,3 +17,8 @@
     text-shadow:  1px 1px 1px rgb(244, 140, 4),
                   2px 2px 1px red;
   }
+
+  .nav img{
+    width: 50px;
+    border-radius: 30px;
+  }

@@ -15,7 +15,7 @@ let state ={
   dialogsPage: {
     dialogs:  [
       { id: 1, name: 'Malyshka', avatar: 'https://i.pinimg.com/236x/96/57/38/9657382007db8eb906fca1a9214f53df.jpg'},
-      { id: 2, name: 'Senpai', avatar: 'https://play-lh.googleusercontent.com/8Nf5oKSmArF3M8sfjvtLNdx66OQ1tlRXrFvvxoIbDyq_CEShCbqoAi5ljjVqvMd0Ctap=s192-rw'},
+      { id: 2, name: 'Senpai', avatar: 'https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg'},
       { id: 3, name: 'Artur', avatar: 'https://pbs.twimg.com/media/EsBDBcnXcAEgDBX.jpg' },
       { id: 4, name: 'Amina', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgOusP5YliNsZbYwI4WkynTqKHUVyQFFWHQQ&usqp=CAU' },
       { id: 5, name: 'Sabira', avatar: 'https://i.pinimg.com/564x/33/74/fd/3374fdc57e601e40d61d2001dd861454.jpg' },
