@@ -38,7 +38,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className="App-wrapper">
         <Header />
-        <Navbar />
+        <Navbar state = {props.state.sidebar} />
         <div className='App-wrapper-content'>
           {/* <Route  path='/dialogs' component={Dialogs} />     потому что компонент не дает вывести БД за АПП ЖС
           <Route  path='/profile' component={Profile} /> 
