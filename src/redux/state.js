@@ -71,5 +71,5 @@ export const subscribe = (observer) => {
   rerenderEntireTree = observer;
 }
 
-
+//we learning OOP
 export default state;
