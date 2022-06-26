@@ -1,6 +1,8 @@
 import React from "react";
-import { rerenderEntireTree } from "../render";
 
+let rerenderEntireTree = () => {
+  console.log('State is changed')
+}
 
 let state = {
 
@@ -38,9 +40,9 @@ let state = {
 
   sidebar: {
     avatars: [
-        {avatar: 'https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg'},
-        {avatar: 'https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg'},
-        {avatar: 'https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg'},
+      { avatar: 'https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg' },
+      { avatar: 'https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg' },
+      { avatar: 'https://vgtimes.ru/uploads/posts/2021-06/1623445957_tr8dqutdpwk.jpg' },
     ]
 
   },
@@ -48,7 +50,7 @@ let state = {
 
 window.state = state
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 5,
     message: state.profilePage.newPostText,
@@ -60,12 +62,14 @@ export let addPost = () => {
   rerenderEntireTree(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText
   rerenderEntireTree(state);
 }
 
-
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
+}
 
 
 export default state;
