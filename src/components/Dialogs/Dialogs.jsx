@@ -67,7 +67,7 @@ const Dialogs = (props) => {
                 <Massage massage={messages[1].message} id={messages[1].id} />
                 <Massage massage={messages[2].message} id={messages[2].id} /> */}
             </div>
-            <div>
+            <div className={s.addText}>
                 <div>
                     <textarea ref = {mewMessageElement}></textarea>
                 </div>

@@ -1,6 +1,9 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    grid-template-areas:
+    "d m"
+    "d a"
 }
 
 .dialogsItems a{
@@ -18,9 +21,14 @@
     color: gold;
 }
 
+.addText {
+    grid-area: a;
+}
+
 .dialog {
     /* padding: 10px; */
     color: azure;
+    grid-area: m;
 }
 
 .messages .message {
