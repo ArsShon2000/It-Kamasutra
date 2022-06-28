@@ -4,8 +4,6 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 
-
-
 const MyPosts = (props) => {
 
 
@@ -13,22 +11,15 @@ const MyPosts = (props) => {
 
     let addPost = () => {
 
-        props.dispatch( addPostActionCreator() )
+        props.dispatch(addPostActionCreator())
     }
-
-    // let posts =[
-    //     {id: 1, message: 'Hi, my name is Ars', likesCount: 7},
-    //     {id: 2, message: "It's my first post", likesCount: 6},                  Подняли на уровень выше чтобы  отправить их в БД
-    //     {id: 1, message: 'I learn React 3-th day', likesCount: 47},
-    //     {id: 1, message: 'Я будущий миллионер', likesCount: 87237},
-    // ]
 
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
 
     let onPostChange = () => {
         let text = newPostElement.current.value
         let action = updateNewPostTextActionCreator(text)
-        props.dispatch (action)
+        props.dispatch(action)
     }
 
     return (
@@ -44,8 +35,6 @@ const MyPosts = (props) => {
             </div>
             <div className={s.posts}>
                 {postsElements}
-                {/* <Post message={postData[0].message} likesCount={postData[0].likesCount} />
-                <Post message={postData[1].message} likesCount={postData[1].likesCount} /> */}
             </div>
         </div>)
 }

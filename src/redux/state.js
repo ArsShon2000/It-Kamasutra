@@ -23,8 +23,6 @@ let store = {
 
     },
 
-
-
     dialogsPage: {
       dialogs: [
         { id: 1, name: 'Malyshka', avatar: 'https://i.pinimg.com/236x/96/57/38/9657382007db8eb906fca1a9214f53df.jpg' },
@@ -57,6 +55,7 @@ let store = {
 
     },
   },
+
   _callSubscriber() {
     console.log('State is changed')
   },
@@ -64,25 +63,11 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer;
   },
+
   getState() {
     return this._state
   },
 
-  // _addPost() {
-  //   let newPost = {
-  //     id: 5,
-  //     message: this._state.profilePage.newPostText,
-  //     likesCount: 0,
-  //   };
-
-  //   this._state.profilePage.posts.push(newPost)
-  //   this._state.profilePage.newPostText = ''
-  //   this._callSubscriber(this._state)
-  // },
-  // _updateNewPostText(newText) {
-  //   this._state.profilePage.newPostText = newText
-  //   this._callSubscriber(this._state)
-  // },
 
   dispatch(action) {
     if (action.type === ADD_POST) {
@@ -105,19 +90,18 @@ let store = {
       let body = this._state.dialogsPage.newMessageBody
       this._state.dialogsPage.newMessageBody = ' '
       this._state.dialogsPage.messages.push({ id: 7, message: body })
-
       this._callSubscriber(this._state)
     }
   },
 }
 
-export const addPostActionCreator = () => ({ type : ADD_POST })
-export const updateNewPostTextActionCreator = (text) => 
-  ( { type : UPDATE_NEW_POST_TEXT, newText: text } )
+export const addPostActionCreator = () => ({ type: ADD_POST })
+export const updateNewPostTextActionCreator = (text) =>
+  ({ type: UPDATE_NEW_POST_TEXT, newText: text })
 
-export const sendMessageCreator = () => ({ type : SEND_MESSAGE })
-export const updateNewMessageBodyCreator = (text) => 
-  ( { type : UPDATE_NEW_MESSAGE_BODY, body: text } )
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
+export const updateNewMessageBodyCreator = (text) =>
+  ({ type: UPDATE_NEW_MESSAGE_BODY, body: text })
 
 export default store;
 window.state = store

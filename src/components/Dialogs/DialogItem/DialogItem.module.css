@@ -1,8 +1,6 @@
 .dialogsItems a{
-    /* padding: 10px; */
     color: azure;
     text-decoration: none;
-    
 }
 
 .dialogs {
@@ -14,11 +12,10 @@
 }
 
 .dialog {
-    /* padding: 10px; */
     color: azure;
 }
 
 .dialog img {
     width: 50px;
     border-radius: 30px;
-  }
+}

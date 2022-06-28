@@ -1,16 +1,11 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
-    /* grid-template-areas:
-    "d m"
-    "d a" */
 }
 
 .dialogsItems a{
-    /* padding: 10px; */
     color: azure;
-    text-decoration: none;
-    
+    text-decoration: none;   
 }
 
 .dialogs {
@@ -21,15 +16,7 @@
     color: gold;
 }
 
-/* .addText {
-    grid-area: a;
-} */
 
 .dialog {
-    /* padding: 10px; */
     color: azure;
-}
-
-.messages .message {
-    /* color: white; */
 }

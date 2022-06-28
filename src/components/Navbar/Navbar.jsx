@@ -9,13 +9,12 @@ const Navbar = (props) => {
 
     let avatarElements = props.state.avatars.map(a => <Sidebar avatar={a.avatar} />)
 
-
     return (
         <nav className={s.nav}>
             <div className={s.item}>
                 <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
             </div>
-            <div className={s.item}> {/*<div className={`${s.item} ${s.active}`}> */}
+            <div className={s.item}>
                 <NavLink to="/dialogs" activeClassName={s.active}>Massages</NavLink>
             </div>
             <div className={s.item}>
@@ -29,8 +28,8 @@ const Navbar = (props) => {
             </div>
             <div className={s.sidebar}>
                 <span><img src=""></img> </span>
-                {avatarElements}       
-                <span> </span>         
+                {avatarElements}
+                <span> </span>
             </div>
         </nav>
     )

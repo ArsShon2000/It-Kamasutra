@@ -4,10 +4,8 @@
 }
 
 .dialogsItems a{
-    /* padding: 10px; */
     color: azure;
     text-decoration: none;
-    
 }
 
 .dialogs {
@@ -19,10 +17,5 @@
 }
 
 .dialog {
-    /* padding: 10px; */
     color: azure;
-}
-
-.messages .message {
-    /* color: white; */
 }

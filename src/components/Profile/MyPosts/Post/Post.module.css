@@ -3,8 +3,6 @@
   color: greenyellow;
 }
 
-
-
 .item img {
   width: 50px;
   border-radius: 30px;
@@ -13,8 +11,6 @@
 .likesCount {
   font-size: 20px;
 }
-
-
 
 .likesCount img {
   width: 16px;
