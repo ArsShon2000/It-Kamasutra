@@ -1,1 +1,1 @@
-let rep = "lesson 24 "
+let rep = "lesson 25 "
