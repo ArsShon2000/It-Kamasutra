@@ -1,7 +1,6 @@
-import React from "react";
 import dialogsReducer from "./dialogsReducer";
 import profileReducer from "./profileReducer";
-import sitebarReducer from "./sitebarReducer";
+import sitebarReducer from "./sidebarReducer";
 
 
 
@@ -80,4 +79,4 @@ let store = {
 
 
 export default store;
-window.state = store
+window.state = store;

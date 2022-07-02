@@ -9,7 +9,7 @@ import Profile from './components/Profile/Profile';
 import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
-import store from './redux/state';
+import store from './redux/store';
 
 
 const App = (props) => {
