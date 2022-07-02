@@ -1,5 +1,4 @@
 import React, { component } from 'react';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogsReducer';
 import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css';
 import Message from './Message/Message';
@@ -7,18 +6,15 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().dialogsPage
+    let state = props.dialogsPage
 
-    let mewMessageElement = React.createRef();
-
-    let addMessage = () => {
-        props.store.dispatch(sendMessageCreator())
+    let onSendMessageClick = () => {
+        props.sendMessage()
     }
 
     let onNewMessageChange = (e) => {
         let body = e.target.value
-        props.store.dispatch(updateNewMessageBodyCreator(body))
-    }
+        props.updateNewMessageBody(body)}
 
     let dialogElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} avatar={d.avatar} />);
     let messagesElements = state.messages.map(m => <Message message={m.message} />);
@@ -41,7 +37,7 @@ const Dialogs = (props) => {
                         </textarea>
                     </div>
                     <div>
-                        <button onClick={addMessage}>Send</button>
+                        <button onClick={onSendMessageClick}>Send</button>
                     </div>
                 </div>
             </div>
