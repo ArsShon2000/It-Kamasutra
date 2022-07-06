@@ -1,6 +1,5 @@
 import React, { component } from 'react';
 import { NavLink } from 'react-router-dom';
-import StoreContext from '../../StoreContext';
 import s from './Navbar.module.css';
 import Sidebar from './sidebar/Sidebar';
 
