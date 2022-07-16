@@ -1,2 +1,2 @@
-let repeat = "lesson 48"
+let repeat = "lesson 49"
 let pattern = '20'
