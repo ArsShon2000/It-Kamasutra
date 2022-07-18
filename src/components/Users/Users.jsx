@@ -12,9 +12,26 @@ class Users extends React.Component {
         });
     }
 
-    render(){
+    render() {
+
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pagesSize)
+
+        let pages = []
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
         return (
             <div>
+                <div>
+                    {pages.map ( p => {
+                        <span className={this.props.currentPage === p && styles.selectedPage}>
+                            {p}
+                        </span>
+                    })}
+                    
+                </div>
+
                 {
                     this.props.users.map(u => <div key={u.id} >
                         <span>
@@ -25,7 +42,7 @@ class Users extends React.Component {
                                 {u.followed
                                     ? <button onClick={() => { this.props.unfollow(u.id) }} >Unfollow</button>
                                     : <button onClick={() => { this.props.follow(u.id) }} >Follow</button>}
-    
+
                             </div>
                         </span>
                         <span>
