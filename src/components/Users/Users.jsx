@@ -1,7 +1,12 @@
 import styles from './Users.module.css'
 import userPhoto from '../../assets/images/user.jpg'
+import React from 'react';
+
+debugger;
 
 let Users = (props) => {
+
+    let state = props.usersPage
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
@@ -15,6 +20,17 @@ let Users = (props) => {
     let curPL = curP + 5;
     let slicedPages = pages.slice(curPF, curPL);
 
+    let onNewNumberChange = (e) => {
+        let body = e.target.value
+        props.updateNewNumberBody(body)
+    }
+
+    let onSendNumberClick = () => {
+        props.sendNumber()        
+    }
+
+    // let newNumberBody = state.newNumberBody
+
     return (
         <div>
             <div>
@@ -22,6 +38,17 @@ let Users = (props) => {
                     return <span className={props.currentPage === p && styles.selectedPage}
                         onClick={(e) => { props.onPageChanged(p) }}> {p} </span>
                 })}
+
+                <textarea className='pagesNumber'
+                    // value={newNumberBody}
+                    onChange={ onNewNumberChange }
+                    placeholder='Enter your page number' 
+                    >
+                </textarea>
+
+                <button onClick={ onSendNumberClick }>
+                    GO!
+                </button>
 
             </div>
 
