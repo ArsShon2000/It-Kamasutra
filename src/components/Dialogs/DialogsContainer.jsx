@@ -15,12 +15,15 @@ let mapDispatchToProps = (dispatch) => {
     return {
         updateNewMessageBody: (body) => {
             dispatch(updateNewMessageBodyCreator(body))
+            
         },
         sendMessage: () => {
             dispatch(sendMessageCreator())
         }
     }
 }
+
+
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps) (Dialogs)
 

@@ -2,8 +2,8 @@ import styles from './Users.module.css'
 import userPhoto from '../../assets/images/user.jpg'
 import React from 'react';
 
-debugger;
 
+debugger;
 let Users = (props) => {
 
     let state = props.usersPage
@@ -28,8 +28,8 @@ let Users = (props) => {
     let onSendNumberClick = () => {
         props.sendNumber()        
     }
-
-    // let newNumberBody = state.newNumberBody
+    debugger;
+    let newNumberBody = state.newNumberBody
 
     return (
         <div>
@@ -40,7 +40,7 @@ let Users = (props) => {
                 })}
 
                 <textarea className='pagesNumber'
-                    // value={newNumberBody}
+                    value={newNumberBody}
                     onChange={ onNewNumberChange }
                     placeholder='Enter your page number' 
                     >

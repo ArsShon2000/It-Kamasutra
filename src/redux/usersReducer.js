@@ -71,7 +71,7 @@ const usersReducer = (state = initialState, action) => {
         case UPDATE_NEW_NUMBER_BODY:
             return{
                 ...state,
-                currentPage: action.body
+                newNumberBody: action.body
             }
         default:
             return state
