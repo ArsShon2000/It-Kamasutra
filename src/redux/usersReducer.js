@@ -15,10 +15,10 @@ let initialState = {
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
-    newNumberBody:1
+    newNumberBody:2
     
 }
-debugger;
+
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case FOLLOW:
@@ -65,7 +65,7 @@ const usersReducer = (state = initialState, action) => {
             let body = state.newNumberBody
             return{
                 ...state,
-                newNumberBody: "",
+                // newNumberBody: "",
                 currentPage: body
             }
         case UPDATE_NEW_NUMBER_BODY:

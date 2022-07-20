@@ -3,10 +3,10 @@ import userPhoto from '../../assets/images/user.jpg'
 import React from 'react';
 
 
-debugger;
+
 let Users = (props) => {
 
-    let state = props.usersPage
+    // let state = props.usersPage
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
@@ -28,8 +28,8 @@ let Users = (props) => {
     let onSendNumberClick = () => {
         props.sendNumber()        
     }
-    debugger;
-    let newNumberBody = state.newNumberBody
+    
+    let newNumberBody = props.newNumberBody
 
     return (
         <div>

@@ -34,7 +34,7 @@ class UsersContainer extends React.Component {
             users = {this.props.users}
             follow = {this.props.follow}
             unfollow = {this.props.unfollow}
-            usersPage = {this.state.usersPage}
+            newNumberBody = {this.props.newNumberBody}
             />
     }
 }
@@ -67,7 +67,6 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(setUsersTotalCountAC(totalCount))
         },
         updateNewNumberBody: (body) =>{
-            debugger;
             dispatch(updateNewNumberBodyAC(body))
         },
         sendNumber: () => {
