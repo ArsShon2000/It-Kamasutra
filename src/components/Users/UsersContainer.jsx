@@ -34,7 +34,7 @@ class UsersContainer extends React.Component {
             users = {this.props.users}
             follow = {this.props.follow}
             unfollow = {this.props.unfollow}
-            newNumberBody = {this.props.newNumberBody}
+            // newNumberBody = {this.props.newNumberBody}
             />
     }
 }
@@ -45,7 +45,8 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        usersPage: state.usersPage,
+        newNumberBody: state.usersPage.newNumberBody,
+
     }
 }
 
@@ -66,8 +67,10 @@ let mapDispatchToProps = (dispatch) => {
         setTotalUsersCount: (totalCount) => {
             dispatch(setUsersTotalCountAC(totalCount))
         },
-        updateNewNumberBody: (body) =>{
-            dispatch(updateNewNumberBodyAC(body))
+        updateNewNumberBody: (number) =>{
+            // dispatch(updateNewNumberBodyAC(number))
+            let action = updateNewNumberBodyAC(number)
+            dispatch(action)
         },
         sendNumber: () => {
             dispatch(sendNumberAC())

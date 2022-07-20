@@ -15,7 +15,7 @@ let initialState = {
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
-    newNumberBody:2
+    newNumberBody: 5
     
 }
 
@@ -62,16 +62,16 @@ const usersReducer = (state = initialState, action) => {
                 totalUsersCount: action.count
             }
         case SEND_NUMBER:
-            let body = state.newNumberBody
+            let number = state.newNumberBody
             return{
-                ...state,
-                // newNumberBody: "",
-                currentPage: body
+                ...state,                
+                currentPage: number,
+                newNumberBody: "",
             }
         case UPDATE_NEW_NUMBER_BODY:
             return{
                 ...state,
-                newNumberBody: action.body
+                newNumberBody: action.number
             }
         default:
             return state
@@ -85,7 +85,7 @@ export const setCurrentPagesAC = (currentPage) => ({ type: SET_CURRENT_PAGE, cur
 export const setUsersTotalCountAC = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, count: totalUsersCount })
 export const sendNumberAC = () => ({ type: SEND_NUMBER })
 export const updateNewNumberBodyAC = (number) => 
-({ type: UPDATE_NEW_NUMBER_BODY, body: number})
+({ type: UPDATE_NEW_NUMBER_BODY, number: number})
 
 
 

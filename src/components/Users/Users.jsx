@@ -20,16 +20,18 @@ let Users = (props) => {
     let curPL = curP + 5;
     let slicedPages = pages.slice(curPF, curPL);
 
-    let onNewNumberChange = (e) => {
-        let body = e.target.value
-        props.updateNewNumberBody(body)
+    let newNumberElement = React.createRef()
+
+    let onNewNumberChange = () => {
+        let number = newNumberElement.current.value
+        props.updateNewNumberBody(number)
     }
 
     let onSendNumberClick = () => {
         props.sendNumber()        
     }
     
-    let newNumberBody = props.newNumberBody
+    // let newNumberBody = props.newNumberBody
 
     return (
         <div>
@@ -39,9 +41,10 @@ let Users = (props) => {
                         onClick={(e) => { props.onPageChanged(p) }}> {p} </span>
                 })}
 
-                <textarea className='pagesNumber'
-                    value={ newNumberBody }
+                <textarea 
                     onChange={ onNewNumberChange }
+                    ref={newNumberElement}
+                    value={ props.newNumberBody }
                     placeholder='Enter your page number' 
                     >
                 </textarea>
