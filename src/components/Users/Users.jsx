@@ -40,7 +40,7 @@ let Users = (props) => {
                 })}
 
                 <textarea className='pagesNumber'
-                    value={newNumberBody}
+                    value={ newNumberBody }
                     onChange={ onNewNumberChange }
                     placeholder='Enter your page number' 
                     >
