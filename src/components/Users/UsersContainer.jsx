@@ -24,7 +24,9 @@ class UsersContainer extends React.Component {
 
 
     render() {
-        return <Users 
+        return <>
+        {this.props.isFetching ? <img /> : null}
+        <Users 
             totalUsersCount = {this.props.totalUsersCount}
             pageSize = {this.props.pageSize} 
             currentPage = {this.props.currentPage}
@@ -36,6 +38,7 @@ class UsersContainer extends React.Component {
             unfollow = {this.props.unfollow}
             // newNumberBody = {this.props.newNumberBody}
             />
+            </>
     }
 }
 
@@ -45,8 +48,7 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        newNumberBody: state.usersPage.newNumberBody,
-
+        newNumberBody: state.usersPage.newNumberBody
     }
 }
 
