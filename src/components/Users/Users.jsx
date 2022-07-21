@@ -15,10 +15,10 @@ let Users = (props) => {
         pages.push(i);
     }
 
-    // let curP = props.currentPage;
-    // let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
-    // let curPL = curP + 5;
-    // let slicedPages = pages.slice(curPF, curPL);
+    let curP = props.currentPage;
+    let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
+    let curPL = curP + 5;
+    let slicedPages = pages.slice(curPF, curPL);
 
     // let newNumberElement = React.createRef()
 
@@ -36,7 +36,7 @@ let Users = (props) => {
     return (
         <div>
             <div>
-                {pages.map(p => {
+                {slicedPages.map(p => {
                     return <span className={props.currentPage === p && styles.selectedPage}
                         onClick={(e) => { props.onPageChanged(p) }}> {p} </span>
                 })}

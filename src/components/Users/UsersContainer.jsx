@@ -1,4 +1,4 @@
-import { followAC, sendNumberAC, setCurrentPagesAC, setUsersAC, setUsersTotalCountAC, toggleIsFetchingAC, unfollowAC, updateNewNumberBodyAC } from '../../redux/usersReducer'
+import { follow, sendNumber, setCurrentPage, setUsers, setUsersTotalCount, toggleIsFetching, unfollow, updateNewNumberBody } from '../../redux/usersReducer'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import Users from './Users'
@@ -14,7 +14,7 @@ class UsersContainer extends React.Component {
             .then(response => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
+                this.props.setUsersTotalCount(response.data.totalCount)
             });
     }
 
@@ -59,37 +59,40 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPagesAC(pageNumber))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setUsersTotalCountAC(totalCount))
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        }
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         follow: (userId) => {
+//             dispatch(followAC(userId))
+//         },
+//         unfollow: (userId) => {
+//             dispatch(unfollowAC(userId))
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUsersAC(users))
+//         },
+//         setCurrentPage: (pageNumber) => {
+//             dispatch(setCurrentPagesAC(pageNumber))
+//         },
+//         setTotalUsersCount: (totalCount) => {
+//             dispatch(setUsersTotalCountAC(totalCount))
+//         },
+//         toggleIsFetching: (isFetching) => {
+//             dispatch(toggleIsFetchingAC(isFetching))
+//         }
 
 
-        // updateNewNumberBody: (number) =>{
-        //     // dispatch(updateNewNumberBodyAC(number))
-        //     let action = updateNewNumberBodyAC(number)
-        //     dispatch(action)
-        // },
-        // sendNumber: () => {
-        //     dispatch(sendNumberAC())
-        // }
-    }
-}
+//         // updateNewNumberBody: (number) =>{
+//         //     // dispatch(updateNewNumberBodyAC(number))
+//         //     let action = updateNewNumberBodyAC(number)
+//         //     dispatch(action)
+//         // },
+//         // sendNumber: () => {
+//         //     dispatch(sendNumberAC())
+//         // }
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, 
+    {follow, unfollow, setUsers,
+    setCurrentPage, setUsersTotalCount, toggleIsFetching
+    }) (UsersContainer)
