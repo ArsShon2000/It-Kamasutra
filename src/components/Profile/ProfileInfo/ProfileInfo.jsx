@@ -2,7 +2,15 @@ import React from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from '../../comman/preloader/Preloader'
 
+debugger
 const ProfileInfo = (props) => {
+
+
+    let socELEMENTS = []
+    for (let i = 1; i <= props.profile.contacts; i++) {
+        socELEMENTS.push(i);
+    }
+
 
     if (!props.profile) {
         return <Preloader />
@@ -15,7 +23,20 @@ const ProfileInfo = (props) => {
         </div>
         <div className={s.descriptionBlock}>
             <img src={props.profile.photos.large} />
-            ava + description
+            <div>{props.profile.aboutMe}</div>
+            <div>{props.profile.fullName}</div>
+            <div className={s.job}>
+            {props.profile.lookingForAJob === true ? <img src = 'https://images.saymedia-content.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTg2MDA1NjgwNDkzMTc1OTM3/alternative-ways-to-say-yes.png' />
+             : <img src = 'https://www.telepolis.pl/media/cache/resolve/amp_recommended_size/images/2021/12/Spider-Man-No-Way-Home.jpg' /> }
+            </div>
+            
+            <div>
+                {props.profile.contacts.map(c => {
+                    return <div>{c}</div>
+                })}
+            </div>
+
+            {/* ava + description */}
         </div>
     </div>
 }
