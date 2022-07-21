@@ -5,6 +5,8 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 const SEND_NUMBER = 'SEND_NUMBER'
 const UPDATE_NEW_NUMBER_BODY = 'UPDATE_NEW_NUMBER_BODY'
+const TOGGLE_IF_FETCHING = 'TOGGLE_IF_FETCHING'
+
 
 
 
@@ -15,8 +17,8 @@ let initialState = {
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
-    newNumberBody: 5,
-    isFetching
+    // newNumberBody: 5,
+    isFetching: false
     
 }
 
@@ -62,18 +64,25 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 totalUsersCount: action.count
             }
-        case SEND_NUMBER:
-            let number = state.newNumberBody
-            return{
-                ...state,                
-                currentPage: number,
-                newNumberBody: "",
-            }
-        case UPDATE_NEW_NUMBER_BODY:
-            return{
+        case TOGGLE_IF_FETCHING:
+            return {
                 ...state,
-                newNumberBody: action.number
+                isFetching: action.isFetching
             }
+
+            
+        // case SEND_NUMBER:
+        //     let number = state.newNumberBody
+        //     return{
+        //         ...state,                
+        //         currentPage: number,
+        //         newNumberBody: "",
+        //     }
+        // case UPDATE_NEW_NUMBER_BODY:
+        //     return{
+        //         ...state,
+        //         newNumberBody: action.number
+        //     }
         default:
             return state
     }
@@ -84,9 +93,10 @@ export const unfollowAC = (userID) => ({ type: UNFOLLOW, userID })
 export const setUsersAC = (users) => ({ type: SET_USERS, users })
 export const setCurrentPagesAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
 export const setUsersTotalCountAC = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, count: totalUsersCount })
-export const sendNumberAC = () => ({ type: SEND_NUMBER })
-export const updateNewNumberBodyAC = (number) => 
-({ type: UPDATE_NEW_NUMBER_BODY, number: number})
+export const toggleIsFetchingAC = (isFetching) => ({ type: TOGGLE_IF_FETCHING, isFetching })
+// export const sendNumberAC = () => ({ type: SEND_NUMBER })
+// export const updateNewNumberBodyAC = (number) => 
+// ({ type: UPDATE_NEW_NUMBER_BODY, number: number})
 
 
 
