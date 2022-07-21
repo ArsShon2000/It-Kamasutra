@@ -42,7 +42,7 @@ class UsersContainer extends React.Component {
                 users={this.props.users}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
-            // newNumberBody = {this.props.newNumberBody}
+                // newNumberBody = {this.props.newNumberBody}
             />
         </>
     }
@@ -54,10 +54,11 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        // newNumberBody: state.usersPage.newNumberBody
+        // newNumberBody: state.usersPage.newNumberBody,
         isFetching: state.usersPage.isFetching
     }
 }
+
 
 // let mapDispatchToProps = (dispatch) => {
 //     return {
@@ -81,18 +82,12 @@ let mapStateToProps = (state) => {
 //         }
 
 
-//         // updateNewNumberBody: (number) =>{
-//         //     // dispatch(updateNewNumberBodyAC(number))
-//         //     let action = updateNewNumberBodyAC(number)
-//         //     dispatch(action)
-//         // },
-//         // sendNumber: () => {
-//         //     dispatch(sendNumberAC())
-//         // }
+        
 //     }
 // }
 
 export default connect(mapStateToProps, 
     {follow, unfollow, setUsers,
-    setCurrentPage, setUsersTotalCount, toggleIsFetching
+    setCurrentPage, setUsersTotalCount, toggleIsFetching,
+    // updateNewNumberBody, sendNumber
     }) (UsersContainer)

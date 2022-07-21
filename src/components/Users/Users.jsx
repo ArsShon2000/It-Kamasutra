@@ -16,42 +16,34 @@ let Users = (props) => {
     }
 
     let curP = props.currentPage;
-    let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
-    let curPL = curP + 5;
+    let curPF = ((curP - 6) < 0) ? 0 : curP - 6;
+    let curPL = (parseInt(curP) + 5);
     let slicedPages = pages.slice(curPF, curPL);
 
-    // let newNumberElement = React.createRef()
+    let newNumberElement = React.createRef()
 
-    // let onNewNumberChange = () => {
-    //     let number = newNumberElement.current.value
-    //     props.updateNewNumberBody(number)
-    // }
-
-    // let onSendNumberClick = () => {
-    //     props.sendNumber()        
-    // }
+    let onSendNumberClick = () => {
+        props.onPageChanged(newNumberElement.current.value)
+    }
     
-    // let newNumberBody = props.newNumberBody
 
     return (
         <div>
             <div>
                 {slicedPages.map(p => {
-                    return <span className={props.currentPage === p && styles.selectedPage}
-                        onClick={(e) => { props.onPageChanged(p) }}> {p} </span>
+                    return <span className={parseInt(curP) === p && styles.selectedPage}
+                        onClick={() => { props.onPageChanged(p) }}> {p} </span>
                 })}
 
-                {/* <textarea 
-                    onChange={ onNewNumberChange }
+                <textarea 
                     ref={newNumberElement}
-                    value={ props.newNumberBody }
-                    placeholder='Enter your page number' 
+                    placeholder='Enter page number' 
                     >
                 </textarea>
 
                 <button onClick={ onSendNumberClick }>
                     GO!
-                </button> */}
+                </button>
 
             </div>
 

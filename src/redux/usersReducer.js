@@ -17,7 +17,7 @@ let initialState = {
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
-    // newNumberBody: 5,
+    newNumberBody: 5,
     isFetching: false
     
 }
@@ -71,18 +71,18 @@ const usersReducer = (state = initialState, action) => {
             }
 
             
-        // case SEND_NUMBER:
-        //     let number = state.newNumberBody
-        //     return{
-        //         ...state,                
-        //         currentPage: number,
-        //         newNumberBody: "",
-        //     }
-        // case UPDATE_NEW_NUMBER_BODY:
-        //     return{
-        //         ...state,
-        //         newNumberBody: action.number
-        //     }
+        case SEND_NUMBER:
+            return{
+                ...state,                
+                currentPage: action.num,
+                newNumberBody: '',
+                currentPage: ''
+            }
+        case UPDATE_NEW_NUMBER_BODY:
+            return{
+                ...state,
+                newNumberBody: action.number
+            }
         default:
             return state
     }
@@ -94,9 +94,9 @@ export const setUsers = (users) => ({ type: SET_USERS, users })
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
 export const setUsersTotalCount = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, count: totalUsersCount })
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IF_FETCHING, isFetching })
-// export const sendNumberAC = () => ({ type: SEND_NUMBER })
-// export const updateNewNumberBodyAC = (number) => 
-// ({ type: UPDATE_NEW_NUMBER_BODY, number: number})
+export const sendNumber = (num) => ({ type: SEND_NUMBER, num})
+export const updateNewNumberBody = (number) => 
+({ type: UPDATE_NEW_NUMBER_BODY, number: number})
 
 
 
