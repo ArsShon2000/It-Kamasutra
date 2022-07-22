@@ -30,8 +30,7 @@ let Users = (props) => {
 
     return (
         <div>
-            <div>
-                
+            <div>                
                 {slicedPages.map(p => {
                     return <span className={parseInt(curP) === p && styles.selectedPage}
                         onClick={() => { props.onPageChanged(p) }}> {p} </span>

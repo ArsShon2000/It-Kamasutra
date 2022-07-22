@@ -2,14 +2,17 @@ import React from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from '../../comman/preloader/Preloader'
 
-debugger
+
 const ProfileInfo = (props) => {
 
+    const socLen  = props.contacts
 
-    let socELEMENTS = []
-    for (let i = 1; i <= props.profile.contacts; i++) {
-        socELEMENTS.push(i);
-    }
+    // let socELEMENTS = []
+    // for (let i = 1; i <= socLen; i++) {
+    //     socELEMENTS.push(i);
+    // }
+    
+    
 
 
     if (!props.profile) {
@@ -31,8 +34,8 @@ const ProfileInfo = (props) => {
             </div>
             
             <div>
-                {props.profile.contacts.map(c => {
-                    return <div>{c}</div>
+                {props.contacts.map(p => {
+                    return <span> {p} </span>
                 })}
             </div>
 
