@@ -33,11 +33,11 @@ const ProfileInfo = (props) => {
              : <img src = 'https://www.telepolis.pl/media/cache/resolve/amp_recommended_size/images/2021/12/Spider-Man-No-Way-Home.jpg' /> }
             </div>
             
-            <div>
+            {/* <div>
                 {props.contacts.map(p => {
                     return <span> {p} </span>
                 })}
-            </div>
+            </div> */}
 
             {/* ava + description */}
         </div>
