@@ -2,6 +2,7 @@ import styles from './Users.module.css'
 import userPhoto from '../../assets/images/user.jpg'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios'
 
 
 
@@ -26,23 +27,23 @@ let Users = (props) => {
     let onSendNumberClick = () => {
         props.onPageChanged(newNumberElement.current.value)
     }
-    
+
 
     return (
-        <div>
-            <div>                
+        <div className={styles.users}>
+            <div>
                 {slicedPages.map(p => {
                     return <span className={parseInt(curP) === p && styles.selectedPage}
                         onClick={() => { props.onPageChanged(p) }}> {p} </span>
                 })}
 
-                <textarea 
+                <textarea
                     ref={newNumberElement}
-                    placeholder='Enter page number' 
-                    >
+                    placeholder='Enter page number'
+                >
                 </textarea>
 
-                <button onClick={ onSendNumberClick }>
+                <button onClick={onSendNumberClick}>
                     GO!
                 </button>
 
@@ -52,14 +53,47 @@ let Users = (props) => {
                 props.users.map(u => <div key={u.id} >
                     <span>
                         <div>
-                            <NavLink to = {'/profile/' + u.id} >
+                            <NavLink to={'/profile/' + u.id} >
                                 <img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.userPhoto} />
                             </NavLink>
                         </div>
                         <div>
                             {u.followed
-                                ? <button onClick={() => { props.unfollow(u.id) }} >Unfollow</button>
-                                : <button onClick={() => { props.follow(u.id) }} >Follow</button>}
+                                ? <button onClick={() => {
+
+                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "fd64e3f6-43f0-4fc4-8685-a982e0e3376a"
+                                        }
+                                    })
+                                        .then(response => {
+                                            if (response.data.resultCode == 0) {
+                                                props.unfollow(u.id)
+                                            }
+                                        });
+
+                                    props.unfollow(u.id)
+
+                                }} >Unfollow</button>
+
+                                : <button onClick={() => {
+
+                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "cbd11330-32b7-4eca-98ab-1840a362f711"
+                                        }
+                                    })
+                                        .then(response => {
+                                            if (response.data.resultCode == 0){
+                                                props.follow(u.id)
+                                            }
+                                        });
+
+                                    props.follow(u.id)
+
+                                }} >Follow</button>}
 
                         </div>
                     </span>
