@@ -6,3 +6,14 @@
     
     width: 116px;
   }
+  
+  .loginBlock {
+    padding: 10px;
+    float: right;
+  }
+
+  .loginBlock a {
+    padding: 10px;
+    color: azure;
+    text-decoration: none;
+  }
