@@ -5,7 +5,7 @@ import Preloader from '../../comman/preloader/Preloader'
 
 const ProfileInfo = (props) => {
 
-    const socLen  = props.contacts
+    // const socLen  = props.contacts
 
     // let socELEMENTS = []
     // for (let i = 1; i <= socLen; i++) {
@@ -25,7 +25,10 @@ const ProfileInfo = (props) => {
             <img src='https://vgtimes.ru/uploads/posts/2021-06/koncept-animeshnoy-pomoschnicy-samsung-vzorval-internet.-v-seti-uzhe-polno-artov-eroticheskogo-kospleya-i-porno-s-devushkoy-77770.jpg?1622660028' />
         </div>
         <div className={s.descriptionBlock}>
-            <img src={props.profile.photos.large} />
+            <div className={s.nameAva}>{props.profile.photos.large === null ?
+                <img src='https://games.mail.ru/pre_xl_resize/hotbox/content_files//gallery/2021/06/09/f1d4f170024149e6a62ad299314a35e6.jpg' />
+                : <img src={props.profile.photos.large} />}
+</div>
             <div>{props.profile.aboutMe}</div>
             <div>{props.profile.fullName}</div>
             <div className={s.job}>

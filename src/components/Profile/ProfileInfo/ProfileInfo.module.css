@@ -12,6 +12,12 @@
   padding: 10px;
 }
 
+
+
+.nameAva img {
+  width: 300px;
+}
+
 .job img {
   width: 100px;
   /* height: 50px; */
