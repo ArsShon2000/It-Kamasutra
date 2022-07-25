@@ -28,6 +28,7 @@ let Users = (props) => {
         props.onPageChanged(newNumberElement.current.value)
     }
 
+    
 
     return (
         <div className={styles.users}>
