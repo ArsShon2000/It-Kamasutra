@@ -59,36 +59,39 @@ let Users = (props) => {
                         </div>
                         <div>
                             {u.followed
-                                ? <button onClick={() => {
-
+                                ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                    debugger
+                                    props.toggleFollowingProgress(true, u.id)
                                     axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                         withCredentials: true,
                                         headers: {
-                                            "API-KEY": "fd64e3f6-43f0-4fc4-8685-a982e0e3376a"
+                                            "API-KEY": "496ab2a7-82c0-4b3f-9ca5-14a365648a52"
                                         }
                                     })
                                         .then(response => {
                                             if (response.data.resultCode == 0) {
                                                 props.unfollow(u.id)
                                             }
+                                            props.toggleFollowingProgress(false, u.id)
                                         });
 
                                     props.unfollow(u.id)
 
                                 }} >Unfollow</button>
 
-                                : <button onClick={() => {
-
+                                : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                    props.toggleFollowingProgress(true, u.id)
                                     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                         withCredentials: true,
                                         headers: {
-                                            "API-KEY": "cbd11330-32b7-4eca-98ab-1840a362f711"
+                                            "API-KEY": "496ab2a7-82c0-4b3f-9ca5-14a365648a52"
                                         }
                                     })
                                         .then(response => {
-                                            if (response.data.resultCode == 0){
+                                            if (response.data.resultCode == 0) {
                                                 props.follow(u.id)
                                             }
+                                            props.toggleFollowingProgress(false, u.id)
                                         });
 
                                     props.follow(u.id)

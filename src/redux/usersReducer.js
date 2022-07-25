@@ -6,6 +6,7 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 const SEND_NUMBER = 'SEND_NUMBER'
 const UPDATE_NEW_NUMBER_BODY = 'UPDATE_NEW_NUMBER_BODY'
 const TOGGLE_IF_FETCHING = 'TOGGLE_IF_FETCHING'
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
 
 
 
@@ -18,7 +19,8 @@ let initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     newNumberBody: 5,
-    isFetching: false
+    isFetching: true,
+    followingInProgress: []
     
 }
 
@@ -83,6 +85,14 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 newNumberBody: action.number
             }
+        case TOGGLE_IS_FOLLOWING_PROGRESS:{
+            return{
+                ...state,
+                followingInProgress: action.isFetching
+                ? [...state.followingInProgress, action.userId]
+                : state.followingInProgress.filter(id => id != action.userId)
+            }
+        }
         default:
             return state
     }
@@ -97,6 +107,8 @@ export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IF_FETCHING, isF
 export const sendNumber = (num) => ({ type: SEND_NUMBER, num})
 export const updateNewNumberBody = (number) => 
 ({ type: UPDATE_NEW_NUMBER_BODY, number: number})
+export const toggleFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
+
 
 
 
