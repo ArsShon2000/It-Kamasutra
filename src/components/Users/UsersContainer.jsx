@@ -1,5 +1,5 @@
 import {
-    follow, setCurrentPage,  unfollow,
+    follow, setCurrentPage, unfollow,
     toggleFollowingProgress, getUsers
 } from '../../redux/usersReducer'
 import { connect } from 'react-redux'
@@ -16,13 +16,14 @@ class UsersContainer extends React.Component {
     }
 
     onPageChanged = (pageNumber) => {
-
-        this.props.getUsers(pageNumber, this.props.pageSize)
+debugger
+        this.props.getUsers(pageNumber, this.props.pageSize )
 
     }
 
 
     render() {
+        debugger
         return <>
             {this.props.isFetching ? <Preloader /> : null}
             <Users
@@ -35,7 +36,6 @@ class UsersContainer extends React.Component {
                 users={this.props.users}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
-                // newNumberBody = {this.props.newNumberBody}
                 followingInProgress={this.props.followingInProgress}
             />
         </>
@@ -43,13 +43,12 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+    debugger
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        // newNumberBody: state.usersPage.newNumberBody,
-        isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress
     }
 }
