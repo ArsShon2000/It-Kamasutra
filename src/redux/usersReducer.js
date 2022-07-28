@@ -111,6 +111,4 @@ export const toggleFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_I
 
 
 
-
-
 export default usersReducer;
