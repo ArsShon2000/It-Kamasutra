@@ -1,4 +1,5 @@
 import axios from "axios";
+import { follow } from "../redux/usersReducer";
 
 
 const instance = axios.create({
@@ -13,6 +14,13 @@ export const usersAPI = {
     async getUsers(currentPage = 1, pagesSize = 10) {
         const response = await instance.get(`users?page=${currentPage}&count=${pagesSize}`);
         return response.data;
+    },
+    follow(userId) {
+
+    },
+    follow(userId) {
+
     }
+
 }
 

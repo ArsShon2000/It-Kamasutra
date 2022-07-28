@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api"
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -21,7 +23,7 @@ let initialState = {
     newNumberBody: 5,
     isFetching: true,
     followingInProgress: []
-    
+
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -72,25 +74,25 @@ const usersReducer = (state = initialState, action) => {
                 isFetching: action.isFetching
             }
 
-            
+
         case SEND_NUMBER:
-            return{
-                ...state,                
+            return {
+                ...state,
                 currentPage: action.num,
                 newNumberBody: '',
                 currentPage: ''
             }
         case UPDATE_NEW_NUMBER_BODY:
-            return{
+            return {
                 ...state,
                 newNumberBody: action.number
             }
-        case TOGGLE_IS_FOLLOWING_PROGRESS:{
-            return{
+        case TOGGLE_IS_FOLLOWING_PROGRESS: {
+            return {
                 ...state,
                 followingInProgress: action.isFetching
-                ? [...state.followingInProgress, action.userId]
-                : state.followingInProgress.filter(id => id != action.userId)
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id != action.userId)
             }
         }
         default:
@@ -104,11 +106,20 @@ export const setUsers = (users) => ({ type: SET_USERS, users })
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
 export const setUsersTotalCount = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, count: totalUsersCount })
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IF_FETCHING, isFetching })
-export const sendNumber = (num) => ({ type: SEND_NUMBER, num})
-export const updateNewNumberBody = (number) => 
-({ type: UPDATE_NEW_NUMBER_BODY, number: number})
-export const toggleFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
+export const sendNumber = (num) => ({ type: SEND_NUMBER, num })
+export const updateNewNumberBody = (number) =>
+    ({ type: UPDATE_NEW_NUMBER_BODY, number: number })
+export const toggleFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
 
-
+export const getUsers = (currentPage, pagesSize) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        usersAPI.getUsers(currentPage, pagesSize).then(data => {
+            dispatch(toggleIsFetching(false))
+            dispatch(setUsers(data.items))
+            dispatch(setUsersTotalCount(data.totalCount))
+        });
+    }
+}
 
 export default usersReducer;
