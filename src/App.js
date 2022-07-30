@@ -26,8 +26,8 @@ const App = () => {
             render={() => <ProfileContainer />} />
           <Route path='/users'
             render={() => <UsersContainer />} />
-            {/* <Route path='/login'
-            render={() => <Login />} /> */}
+            <Route path='/login'
+            render={() => <Login />} />
           <Route path='/news'
             render={() => <News />} />
           <Route path='/music'

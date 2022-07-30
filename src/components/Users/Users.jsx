@@ -2,14 +2,11 @@ import styles from './Users.module.css'
 import userPhoto from '../../assets/images/user.jpg'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 
 
 
 let Users = (props) => {
     
-
-    // let state = props.usersPage
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     let pages = []
