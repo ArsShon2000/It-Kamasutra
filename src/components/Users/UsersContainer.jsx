@@ -7,6 +7,7 @@ import Users from './Users'
 import React from 'react'
 import Preloader from '../comman/preloader/Preloader'
 import { usersAPI } from '../../api/api'
+import { Redirect } from 'react-router-dom'
 
 
 class UsersContainer extends React.Component {
@@ -23,7 +24,8 @@ debugger
 
 
     render() {
-        debugger
+    if (!this.props.isAuth) return <Redirect to={"/login"} />
+        
         return <>
             {this.props.isFetching ? <Preloader /> : null}
             <Users
@@ -49,7 +51,7 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        followingInProgress: state.usersPage.followingInProgress
+        followingInProgress: state.usersPage.followingInProgress,
     }
 }
 

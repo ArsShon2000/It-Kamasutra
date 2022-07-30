@@ -2,16 +2,16 @@ import styles from './Users.module.css'
 import userPhoto from '../../assets/images/user.jpg'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios'
-import { usersAPI } from '../../api/api';
+import { Redirect } from 'react-router-dom';
+
 
 
 let Users = (props) => {
+    
 
     // let state = props.usersPage
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-debugger
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
@@ -28,7 +28,7 @@ debugger
         props.onPageChanged(newNumberElement.current.value)
     }
 
-    
+
 
     return (
         <div className={styles.users}>
