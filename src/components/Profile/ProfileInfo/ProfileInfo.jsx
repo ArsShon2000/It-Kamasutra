@@ -1,20 +1,10 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from '../../comman/preloader/Preloader'
+import ProfileStatus from "./ProfileStatus"
 
 
 const ProfileInfo = (props) => {
-
-    // const socLen  = props.contacts
-
-    // let socELEMENTS = []
-    // for (let i = 1; i <= socLen; i++) {
-    //     socELEMENTS.push(i);
-    // }
-    
-    
-
-
     if (!props.profile) {
         return <Preloader />
     }
@@ -28,6 +18,7 @@ const ProfileInfo = (props) => {
             <div className={s.nameAva}>{props.profile.photos.large === null ?
                 <img src='https://games.mail.ru/pre_xl_resize/hotbox/content_files//gallery/2021/06/09/f1d4f170024149e6a62ad299314a35e6.jpg' />
                 : <img src={props.profile.photos.large} />}
+                <ProfileStatus status={"Hello"}/>
 </div>
             <div>{props.profile.aboutMe}</div>
             <div>{props.profile.fullName}</div>
@@ -35,14 +26,6 @@ const ProfileInfo = (props) => {
             {props.profile.lookingForAJob === true ? <img src = 'https://images.saymedia-content.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTg2MDA1NjgwNDkzMTc1OTM3/alternative-ways-to-say-yes.png' />
              : <img src = 'https://www.telepolis.pl/media/cache/resolve/amp_recommended_size/images/2021/12/Spider-Man-No-Way-Home.jpg' /> }
             </div>
-            
-            {/* <div>
-                {props.contacts.map(p => {
-                    return <span> {p} </span>
-                })}
-            </div> */}
-
-            {/* ava + description */}
         </div>
     </div>
 }
