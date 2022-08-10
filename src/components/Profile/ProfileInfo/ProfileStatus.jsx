@@ -8,7 +8,8 @@ class ProfileStatus extends React.Component {
         title: 'Yo'
     }
 
-    activateEditMode() {
+    activateEditMode = () => {
+        console.log("this", this)
         this.setState( {
             editMode: true
         } )
