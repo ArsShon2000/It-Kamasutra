@@ -9,23 +9,6 @@ import { compose } from 'redux';
 
 
 
-// const WithRouterComponent = (props) => {
-//     const param = useParams()
-//     return(
-//         <ProfileContainer {...props} 
-//         userId = {param.userId ? param.userId: 2}
-//         />
-//     )
-// }
-
-// export function withRouter(Children){
-//     return(props)=>{
-
-//        const match  = {params: useParams()};
-//        return <Children {...props}  match = {match}/>
-//    }
-//  }
-
 class ProfileContainer  extends React.Component {
 
     
@@ -36,6 +19,7 @@ class ProfileContainer  extends React.Component {
             userId = 2
         }
         this.props.getUserProfile(userId)
+        this.props.getUserStatus(userId)
     }
     
     
@@ -49,29 +33,9 @@ class ProfileContainer  extends React.Component {
 
 
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    status: state.profilePage.status
 })
-
-
-// const TakeParams = (props) => {
-//     return <ProfileContainer {...props} param={useParams()} />
-// }
-
-// function withRouter(Component) {
-//     function ComponentWithRouterProp(props) {
-//         let location = useLocation();
-//         let params = useParams();
-//         return (
-//             <Component
-//                 {...props}
-//                 router={{ location, params }}
-//             />
-//         );
-//     }
-
-//     return ComponentWithRouterProp
-// }
-
 
 
 
