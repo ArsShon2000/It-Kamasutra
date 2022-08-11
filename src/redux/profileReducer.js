@@ -17,7 +17,7 @@ let initialState = {
 
     newPostText: "More money",
     profile: null,
-    status: ""
+    status: "Arsi status"
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -76,7 +76,7 @@ export const getUserProfile = (userId) => (dispatch) => {
 
 export const getStatus = (userId) => (dispatch) => {
     profileAPI.getStatus(userId).then(response => {
-        debugger
+        
         dispatch(setStatus(response.data))
     });
 }
