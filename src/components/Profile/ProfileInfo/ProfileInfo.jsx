@@ -18,7 +18,8 @@ const ProfileInfo = (props) => {
             <div className={s.nameAva}>{props.profile.photos.large === null ?
                 <img src='https://games.mail.ru/pre_xl_resize/hotbox/content_files//gallery/2021/06/09/f1d4f170024149e6a62ad299314a35e6.jpg' />
                 : <img src={props.profile.photos.large} />}
-                <ProfileStatus status={"Hello"}/>
+                <ProfileStatus status={props.status}/>
+                
 </div>
             <div>{props.profile.aboutMe}</div>
             <div>{props.profile.fullName}</div>
