@@ -22,6 +22,14 @@ class ProfileStatus extends React.Component {
         this.props.updateStatus(this.state.status)
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.status !== this.props.status ) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
+
     onStatusChance = (e) => {
         this.setState({
             status: e.currentTarget.value
