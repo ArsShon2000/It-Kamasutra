@@ -27,7 +27,7 @@ class ProfileStatus extends React.Component {
             status: e.currentTarget.value
         })
     }
-    
+
 
     render() {
         return <div>
