@@ -18,7 +18,6 @@ const LoginForm = (props) => {
     </form>
 }
 
-
 const Login = (props) => {
     return <div>
         <h1>login</h1>
