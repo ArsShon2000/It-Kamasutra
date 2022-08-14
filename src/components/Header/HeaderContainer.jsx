@@ -1,8 +1,6 @@
-import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { authAPI } from '../../api/api';
 import { getAuthUserData } from '../../redux/authReducer';
 import Header from './Header';
 
